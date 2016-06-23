@@ -1,0 +1,4 @@
+node_modules
+.idea
+SymLinked/www
+bower_components

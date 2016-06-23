@@ -1,0 +1,36 @@
+<script src="../script.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+<script src="../module.js"></script>
+<script src="controllerController.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+      integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<body ng-app="simulator" ng-controller="controllerController">
+    <ul class="nav nav-tabs">
+        <li role="presentation">
+            <button class="btn btn-default" ng-click="setView('controller')"style="text-align: center">Controller</button>
+        </li>
+        <li ng-repeat="app in runningApps">
+            <button class="btn btn-default " ng-click="setView(app)" style="text-align: center">{{app}}</button>
+        </li>
+    </ul>
+    <span ng-if="viewUrl">
+        <iframe ng-src="{{viewUrl}}" style="height:90%; width: 90%"></iframe>
+    </span>
+    <span ng-if="!viewUrl">
+        <h1>
+            Controller
+        </h1>
+        <div ng-repeat="app in apps" style="width: 100%;" class="well well-sm row">
+            <span class="col-md-5">
+                {{app.appId}}
+            </span>
+            <span class="col-md-6 pull-right">
+                <div class="row">
+                    <button class="col-sm-4 btn btn-primary" ng-click="sendCommand(app.appId, 'launch')">Launch</button>
+                    <button class="btn col-sm-4 btn btn-warning" ng-if="app.running" ng-click="sendCommand(app.appId, 'move')">Move</button>
+                    <button class="col-sm-4 btn btn-danger" ng-if="app.running" ng-click="sendCommand(app.appId, 'kill')">Kill</button>
+                </div>
+            </span>
+        </div>
+    </span>
+</body>

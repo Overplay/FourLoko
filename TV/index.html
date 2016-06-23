@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hello world!</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+        <!--<script src="script.js"></script>-->
+        <script src="../module.js"></script>
+        <script src="tvController.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="appStyles.css">
+    </head>
+    <body ng-app="simulator" ng-controller="tvController" style="background-image: url(../img/tvBackground.gif); margin: 0; padding: 0">
+        <div>
+            <iframe
+                    ng-if="crawlerIframeInfo.ready"
+                    ng-src="{{crawlerIframeInfo.url}}"
+                    class="crawler"
+                    ng-class="{'crawler-slot-0': crawlerIframeInfo.slot == 0, 'crawler-slot-1': crawlerIframeInfo.slot == 1}"
+            ></iframe>
+            <iframe
+                    ng-if="widgetIframeInfo.ready"
+                    ng-src="{{widgetIframeInfo.url}}"
+                    class="widget"
+                    ng-class="{
+                        'widget-slot-0': widgetIframeInfo.slot == 0,
+                        'widget-slot-1': widgetIframeInfo.slot == 1,
+                        'widget-slot-2': widgetIframeInfo.slot == 2,
+                        'widget-slot-3': widgetIframeInfo.slot == 3
+                    }"
+            ></iframe>
+        </div>
+    </body>
+</html>

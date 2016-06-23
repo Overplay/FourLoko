@@ -1,0 +1,13 @@
+{
+  "name": "nw-demo",
+  "version": "0.0.1",
+  "main": "Controller/controller.html",
+  "window": {
+    "width": 500,
+    "height": 600,
+    "resizable": false
+  },
+  "webkit": {
+    "plugin": true
+  }
+}

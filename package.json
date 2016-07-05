@@ -9,5 +9,12 @@
   },
   "webkit": {
     "plugin": true
+  },
+  "dependencies": {
+    "grunt": "^1.0.1",
+    "nw": "^0.15.4"
+  },
+  "scripts": {
+    "nw": "nw"
   }
 }

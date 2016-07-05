@@ -4,6 +4,10 @@ Amstel Bright simulator written in NodeWebkit and Sails.js
 
 The purpose of this project is to emulate the behavior of the Ourglass Android Amstel Bright server and UI for application development purposes.
 
+### To run the simulator
+1. Run `grunt init` which will install all dependencies
+2. Run `npm run nw` which will start the simulator
+
 ### Steps to begin developing applications
 
 1. Read the README inside of `AmstelBrightSimulator` for information about the server

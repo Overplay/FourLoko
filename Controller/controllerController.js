@@ -62,7 +62,7 @@ app.controller('controllerController', function ($scope, $http, $rootScope, $int
             $scope.viewUrl = undefined;
         }
         else {
-            var url = '../AmstelBrightLimeWWW/opp/' + appid + '/app/control/index.html';
+            var url = '../SymLinked/www/opp/' + appid + '/app/control/index.html';
             $scope.viewUrl = url;//$sce.trustAsHtml(url);
         }
     };

@@ -13,7 +13,7 @@
   "dependencies": {
     "grunt": "^1.0.1",
     "grunt-cli": "^1.2.0",
-    "nw": "^0.15.4"
+    "nw": "^0.15.4-sdk"
   },
   "scripts": {
     "nw": "nw"

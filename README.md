@@ -7,8 +7,10 @@ The purpose of this project is to emulate the behavior of the Ourglass Android A
 ### To run the simulator
 1. Run `npm install` which will install all dependencies
 2. Move to `AmstelBrightSimulator` directory and run `npm install`
-3. Make sure that there is a www/opp folder under the SymLinked directory
+3. Make sure that there is a `/www/opp` folder under the `SymLinked` directory
 4. Go back to the root and run `npm run nw` which will start the simulator
+
+#### NOTE: If you want to use the devtools (you do) run `npm install nw@0.15.4-sdk --save` (for some reason the sdk won't install automatically)
 
 ### Steps to begin developing applications
 

@@ -18,6 +18,36 @@ app.controller('tvController', function($scope, $http, $sce, $interval){
         slot: 0
     };
 
+    //polling loop to check if application moved (this is only for moves being sent outside of the main controller
+    // (these will move things automatically with magic))
+    var intervalReady = true;
+    $interval(function(){
+        if(intervalReady) {
+            intervalReady = false;
+            $http({
+                method: 'GET',
+                url: 'http://localhost:1337/api/system/apps'
+            }).then(function (response) {
+                response.data.forEach(function(obj){
+                    if('../SymLinked/www/opp/' + obj.appId + '/app/tv/index.html' == $scope.crawlerIframeInfo.url){
+                        $scope.crawlerIframeInfo.slot = obj.slotNumber
+                    }
+                    if('../SymLinked/www/opp/' + obj.appId + '/app/tv/index.html' == $scope.widgetIframeInfo.url){
+                        $scope.widgetIframeInfo.slot = obj.slotNumber;
+                    }
+                })
+                intervalReady = true;
+            }, function (err) {
+                console.warn(err);
+                intervalReady = true;
+            });
+        }
+        else {
+            console.log('didn\'t successfully poll becuase last poll hadn\'t finished.' +
+                'If you are seeing this alo then interval time probably needs to be lengthened');
+        }
+    }, 1000);
+
     win.window.addEventListener('message', function(event){
         var urlOfApp = $sce.trustAsResourceUrl('../SymLinked/www/opp/' + event.data.appId + '/app/tv/index.html');
         console.log(event.data);

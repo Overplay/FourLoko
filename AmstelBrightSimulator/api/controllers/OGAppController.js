@@ -25,25 +25,28 @@ module.exports = {
     }
     else if(req.method == 'POST' || req.method == 'PUT'){
       console.log('attempted to post /api/appdata/:appid');
+      console.log('here');
       if(!req.params || !req.params.appid || !req.body){
-        console.log('what the fuck');
+        console.log('unknown error');
         return req.badRequest();
       }
       var appid = req.params.appid;
-        console.log(appid);
+      console.log(appid);
       OGApp.findOne({appId: appid}).exec(function(err, app){
         if(err){
           return res.negotiate(err);
         }
+        console.log('here2', app);
         if(app){
           app.publicData = req.body;
           app.save(function(err, updated){
+            console.log(err);
             return err ? res.negotiate(err) : res.ok(req.body);
           });
         }
-          else {
-            res.badRequest('Application: ' + appid + '' +
-                ' not found');
+        else {
+          res.badRequest('Application: ' + appid + '' +
+            ' not found');
         }
       })
     }
@@ -53,7 +56,6 @@ module.exports = {
   },
 
   create: function(req,res){
-    console.log(req.body);
     OGApp.findOrCreate({appId: req.body.appId}, req.body).exec(function(err, created){
       if(err){
         return res.negotiate(err);

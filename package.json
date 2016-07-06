@@ -5,7 +5,9 @@
   "window": {
     "width": 500,
     "height": 600,
-    "resizable": false
+    "resizable": false,
+    "focus": false,
+    "focusable": false
   },
   "webkit": {
     "plugin": true

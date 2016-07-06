@@ -29,6 +29,7 @@ function resume() {
             try {
                 var fileCont = fs.readFileSync('SymLinked/www/opp/' + app + '/info/info.json', {encoding: 'UTF-8'});
                 var fileInfoObj = JSON.parse(fileCont);
+                fileInfoObj.appId = fileInfoObj.reverseDomainName = app; //this was changed so that appid is the name of the directory
                 if (fileInfoObj) appInfoObjects.push(fileInfoObj);
             } catch (e) {
                 console.error("ingnoring entry: " + app + " \n" + e);

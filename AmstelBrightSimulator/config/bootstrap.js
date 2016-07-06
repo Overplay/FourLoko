@@ -11,7 +11,6 @@
 
 module.exports.bootstrap = function (cb) {
   sails.on('lifted', function() {
-    sails.log('fuck yeah');
     process.send({ready: true});
   });
 

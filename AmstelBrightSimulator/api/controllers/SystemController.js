@@ -12,7 +12,6 @@ module.exports = {
         return res.badRequest('missing command');
       }
       var cmd = req.params.command;
-      console.log(cmd)
       if (cmd == 'apps') {
         OGApp.find().exec(function (err, apps) {
           if (err) {

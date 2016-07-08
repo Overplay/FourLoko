@@ -17,8 +17,8 @@
 }
 
 .widget {
-    width: 200px;
-    height:300px;
+    width: 300px;
+    height:200px;
     border: none;
     position: absolute;
     -webkit-transition-timing-function: ease-in-out;
@@ -27,21 +27,23 @@
 }
 
 .widget-slot-0 {
-    top:0;
+    top:60px;
     left:0
 }
 
+
 .widget-slot-1 {
-    top:420px;
-    left:0;
+    top:60px;
+    left: calc(100% - 300px);
+
 }
 
 .widget-slot-2 {
-    top:420px;
-    left:880px;
+    top: calc(100% - 200px);
+    left: calc(100% - 300px);
 }
 
 .widget-slot-3 {
-    top:0;
-    left:880px;
+    top:calc(100% - 200px);
+    left:0;
 }

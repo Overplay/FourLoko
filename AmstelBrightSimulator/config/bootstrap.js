@@ -11,7 +11,10 @@
 
 module.exports.bootstrap = function (cb) {
   sails.on('lifted', function() {
-    process.send({ready: true});
+
+    //global from nw
+    if(process && process.send)
+      process.send({ready: true});
   });
 
   cb();

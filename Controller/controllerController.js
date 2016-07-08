@@ -6,7 +6,7 @@ function goHome(){
 }
 
 app.controller('controllerController', function ($scope, $http, $rootScope, $interval, $timeout, $sce) {
-    var BASE_URL = 'http://localhost:1337/api/app/';
+    var BASE_URL = 'http://localhost:4000/api/app/';
 
     $scope.apps = [];
 
@@ -16,7 +16,7 @@ app.controller('controllerController', function ($scope, $http, $rootScope, $int
     function getApps() {
         $http({
             method: 'GET',
-            url: 'http://localhost:1337/api/system/apps'
+            url: 'http://localhost:4000/api/system/apps'
         }).then(function (response) {
             $scope.apps = response.data;
             interval = 10000;

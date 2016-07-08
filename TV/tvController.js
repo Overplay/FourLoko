@@ -26,7 +26,7 @@ app.controller('tvController', function($scope, $http, $sce, $interval){
             intervalReady = false;
             $http({
                 method: 'GET',
-                url: 'http://localhost:1337/api/system/apps'
+                url: 'http://localhost:4000/api/system/apps'
             }).then(function (response) {
                 response.data.forEach(function(obj){
                     if('../SymLinked/www/opp/' + obj.appId + '/app/tv/index.html' == $scope.crawlerIframeInfo.url){
@@ -81,7 +81,7 @@ app.controller('tvController', function($scope, $http, $sce, $interval){
 
     $http({
         method: 'GET',
-        url: 'http://localhost:1337/api/system/apps'
+        url: 'http://localhost:4000/api/system/apps'
     }).then(function(response){
         $scope.apps = response.data;
     }, function(err){

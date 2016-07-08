@@ -20,7 +20,7 @@ function resume() {
 
     //this is the main nwjs script
     var gui = require('nw.gui');
-
+    gui.Window.get().showDevTools();
     //get the information for the applications
     var apps = fs.readdirSync('SymLinked/www/opp');
     var appInfoObjects = [];
@@ -41,8 +41,9 @@ function resume() {
     gui.Window.open('TV/index.html', function (newWin) {
         tvWindow = newWin;
         tvWindow.height = 720;
-        tvWindow.width = 1080;
+        tvWindow.width = 1280;
         tvWindow.setResizable(false);
+        tvWindow.showDevTools();
     });
     
     //spawn the sails server
@@ -63,7 +64,7 @@ function resume() {
         var post_data = querystring.stringify(objToPost);
         var post_options = {
             host: 'localhost',
-            port: '1337',
+            port: '4000',
             path: '/api/OGApp',
             method: 'POST',
             headers: {
